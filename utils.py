@@ -163,7 +163,12 @@ class Utils:
                     headers={'User-agent': self.user_agent},
                     timeout=15)
                 t = r.text
-                logger.debug("Response:\n{}\n".format(t))
+                try:
+                    pjson = json.dumps(r.json(), indent=4)
+                    logger.debug("Response:\n{}\n".format(pjson))
+                except:
+                    logger.debug("Response:\n{}\n".format(t))
+
                 if t == "5":
                     logger.info("Check your Internet.")
                 elif t == "8":
