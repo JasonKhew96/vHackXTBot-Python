@@ -3,6 +3,9 @@ from random import uniform
 user = ""
 password = ""
 
+# Debug switch
+debug_switch = False
+
 # Enter Max Antivir to attack in normal mode
 maxanti_normal = 3000
 
