@@ -13,8 +13,7 @@ import ddos
 import logging
 logger = logging.getLogger(__name__)
 FORMAT = '%(asctime)s [%(threadName)10s][%(module)10s][%(levelname)8s] %(message)s'
-logging.basicConfig(level=logging.INFO, format=FORMAT)
-
+logging.basicConfig(format=FORMAT)
 
 class run:
     def __init__(self):
@@ -63,7 +62,7 @@ class run:
 
             if int(self.running_all) < int(self.get_max_update):
                 while "0" in stat or "3" in stat:
-                    if int(self.u.runningtasks()) < int(self.u.infoUpdate("ram", "new")) - 1 or int(self.u.runningtasks()) < int(self.get_max_update):
+                    if int(self.u.runningtasks()) < int(self.get_max_update) - 1 or int(self.u.runningtasks()) < int(self.get_max_update):
                         try:
                             moneyforupdate = int(self.u.infoUpdate(self.updates[self.updatecount]))
                         except IndexError:
@@ -148,7 +147,7 @@ class run:
                     self.u.finishAll()
                     self.player.refreshinfo()  # update player info
                     logger.info("I used Netcoins for finish all task.")
-                    
+
             if self.player.email > 0:
                 time.sleep(self.wait_load)
                 logger.info('Reading mails...')
