@@ -158,10 +158,19 @@ class Utils:
                 exit(0)
             try:
                 s = requests.Session()
-                r = s.get(
-                    self.generateURL(username, password, uhash, php, **kwargs),
-                    headers={'User-agent': self.user_agent},
-                    timeout=15)
+                if config.enable_proxy:
+                    r = s.get(
+                        self.generateURL(username, password, uhash, php,
+                                         **kwargs),
+                        headers={'User-agent': self.user_agent},
+                        proxies=config.proxies,
+                        timeout=15)
+                else:
+                    r = s.get(
+                        self.generateURL(username, password, uhash, php,
+                                         **kwargs),
+                        headers={'User-agent': self.user_agent},
+                        timeout=15)
                 t = r.text
                 try:
                     pjson = json.dumps(r.json(), indent=4)

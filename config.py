@@ -3,6 +3,12 @@ from random import uniform
 user = ""
 password = ""
 
+# proxy (3 examples given)
+# proxies = {'http':'http://127.0.0.1:1234'}
+# proxies = {'https':'https://127.0.0.1:1234'}
+# proxies = {'http':'http://127.0.0.1:1234', 'https':'https://127.0.0.1:1234'}
+enable_proxy = False
+
 # Debug switch
 debug_switch = False
 
